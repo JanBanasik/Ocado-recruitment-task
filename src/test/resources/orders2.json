@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ORDER5",
+    "value": "250.00",
+    "promotions": ["PUNKTY"]
+  },
+  {
+    "id": "ORDER6",
+    "value": "80.00",
+    "promotions": ["mZysk"]
+  },
+  {
+    "id": "ORDER7",
+    "value": "90.00"
+  }
+]

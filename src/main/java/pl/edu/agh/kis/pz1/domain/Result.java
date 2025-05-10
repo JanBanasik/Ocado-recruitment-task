@@ -31,7 +31,6 @@ public class Result {
      */
     @Override
     public String toString() {
-        // Format the amount to two decimal places using HALF_UP rounding
         return methodId + " " + amountSpend.setScale(2, RoundingMode.HALF_UP);
     }
 }

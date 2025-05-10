@@ -15,7 +15,6 @@ import java.util.List;
  */
 public class JsonParser {
 
-    // ObjectMapper instance for performing JSON reading and writing
     private static final ObjectMapper mapper = new ObjectMapper();
 
     /**
@@ -36,12 +35,9 @@ public class JsonParser {
     public static List<Order> parseOrders(String path) throws IOException {
         File file = new File(path);
 
-        // Read the JSON file and map its content to a List of Order objects
-        // Using TypeReference with empty diamond <> works with newer Java versions
         List<Order> orders = mapper.readValue(file, new TypeReference<>() {});
-
-        // Initialize the remaining value to pay for each order after parsing
         orders.forEach(Order::initializeRemainingValue);
+
         return orders;
     }
 
@@ -55,11 +51,10 @@ public class JsonParser {
      */
     public static List<PaymentMethod> parsePaymentMethods(String path) throws IOException {
         File file = new File(path);
-        // Read the JSON file and map its content to a List of PaymentMethod objects
-        List<PaymentMethod> paymentMethods = mapper.readValue(file, new TypeReference<>() {});
 
-        // Initialize the remaining limit for each payment method after parsing
+        List<PaymentMethod> paymentMethods = mapper.readValue(file, new TypeReference<>() {});
         paymentMethods.forEach(PaymentMethod::initializeRemainingLimit);
+
         return paymentMethods;
     }
 }

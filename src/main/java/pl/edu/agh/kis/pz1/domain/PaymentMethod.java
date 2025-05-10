@@ -59,8 +59,6 @@ public class PaymentMethod {
      */
     public void addSpent(BigDecimal amount) {
         if (amount.compareTo(BigDecimal.ZERO) < 0) {
-            // Optional: add logging or throw an exception for negative amounts
-            // System.err.println("Warning: Attempted to add negative amount to totalSpent for method " + this.id + ": " + amount);
             return;
         }
         this.totalSpent = this.totalSpent.add(amount);
@@ -74,8 +72,6 @@ public class PaymentMethod {
      */
     public void deductLimit(BigDecimal amount) {
         if (amount.compareTo(BigDecimal.ZERO) < 0) {
-            // Optional: add logging or throw an exception for negative amounts
-            // System.err.println("Warning: Attempted to deduct negative amount from remainingLimit for method " + this.id + ": " + amount);
             return;
         }
         this.remainingLimit = this.remainingLimit.subtract(amount);
