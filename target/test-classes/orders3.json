@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ORDER8",
+    "value": "180.00",
+    "promotions": ["BosBankrut"]
+  },
+  {
+    "id": "ORDER9",
+    "value": "300.00",
+    "promotions": ["PUNKTY", "BosBankrut"]
+  },
+  {
+    "id": "ORDER10",
+    "value": "60.00"
+  }
+]

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>JsonParser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ocado</a> &gt; <a href="index.source.html" class="el_package">pl.edu.agh.kis.pz1.utils</a> &gt; <span class="el_source">JsonParser.java</span></div><h1>JsonParser.java</h1><pre class="source lang-java linenums">package pl.edu.agh.kis.pz1.utils;
+
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import pl.edu.agh.kis.pz1.domain.Order;
+import pl.edu.agh.kis.pz1.domain.PaymentMethod;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+
+/**
+ * Utility class for parsing JSON files containing Order and PaymentMethod data.
+ * Uses the Jackson library for JSON processing.
+ */
+public class JsonParser {
+
+<span class="fc" id="L18">    private static final ObjectMapper mapper = new ObjectMapper();</span>
+
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     */
+<span class="nc" id="L23">    private JsonParser() {</span>
+<span class="nc" id="L24">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
+    }
+
+    /**
+     * Parses a JSON file containing a list of orders into a List of Order objects.
+     * Initializes the remaining value to pay for each order after parsing.
+     *
+     * @param path The absolute path to the orders JSON file.
+     * @return A List of populated Order objects.
+     * @throws IOException If an error occurs while reading or parsing the file.
+     */
+    public static List&lt;Order&gt; parseOrders(String path) throws IOException {
+<span class="fc" id="L36">        File file = new File(path);</span>
+
+<span class="fc" id="L38">        List&lt;Order&gt; orders = mapper.readValue(file, new TypeReference&lt;&gt;() {});</span>
+<span class="fc" id="L39">        orders.forEach(Order::initializeRemainingValue);</span>
+
+<span class="fc" id="L41">        return orders;</span>
+    }
+
+    /**
+     * Parses a JSON file containing a list of payment methods into a List of PaymentMethod objects.
+     * Initializes the remaining limit for each payment method after parsing.
+     *
+     * @param path The absolute path to the payment methods JSON file.
+     * @return A List of populated PaymentMethod objects.
+     * @throws IOException If an error occurs while reading or parsing the file.
+     */
+    public static List&lt;PaymentMethod&gt; parsePaymentMethods(String path) throws IOException {
+<span class="fc" id="L53">        File file = new File(path);</span>
+
+<span class="fc" id="L55">        List&lt;PaymentMethod&gt; paymentMethods = mapper.readValue(file, new TypeReference&lt;&gt;() {});</span>
+<span class="fc" id="L56">        paymentMethods.forEach(PaymentMethod::initializeRemainingLimit);</span>
+
+<span class="fc" id="L58">        return paymentMethods;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

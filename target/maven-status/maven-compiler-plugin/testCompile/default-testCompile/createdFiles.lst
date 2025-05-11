@@ -1,0 +1,5 @@
+pl\edu\agh\kis\pz1\optimizer\PaymentOptimizerTest.class
+pl\edu\agh\kis\pz1\utils\JsonParserTest.class
+pl\edu\agh\kis\pz1\domain\OrderTest.class
+pl\edu\agh\kis\pz1\utils\BigDecimalUtilTest.class
+pl\edu\agh\kis\pz1\domain\PaymentMethodTest.class

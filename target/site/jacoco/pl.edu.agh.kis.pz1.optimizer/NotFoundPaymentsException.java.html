@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NotFoundPaymentsException.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ocado</a> &gt; <a href="index.source.html" class="el_package">pl.edu.agh.kis.pz1.optimizer</a> &gt; <span class="el_source">NotFoundPaymentsException.java</span></div><h1>NotFoundPaymentsException.java</h1><pre class="source lang-java linenums">package pl.edu.agh.kis.pz1.optimizer;
+
+
+/**
+ * Exception thrown by the {@link PaymentOptimizer} when it cannot find
+ * a suitable payment method to pay for a specific order, indicating
+ * that a complete payment allocation is not possible under the given
+ * constraints and algorithm strategy.
+ */
+public class NotFoundPaymentsException extends Exception {
+
+    /**
+     * Constructs a new NotFoundPaymentsException with the specified detail message.
+     * The cause is not initialized, and may subsequently be initialized by a
+     * call to {@link Throwable#initCause}.
+     *
+     * @param s the detail message. The detail message is saved for
+     *          later retrieval by the {@link Throwable#getMessage()} method.
+     */
+    public NotFoundPaymentsException(String s) {
+<span class="fc" id="L21">        super(s);</span>
+<span class="fc" id="L22">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

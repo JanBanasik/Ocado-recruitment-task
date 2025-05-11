@@ -1,0 +1,61 @@
+@options
+@argfile
+-classpath
+'C:/Users/jan_b/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.4.2/jackson-databind-2.13.4.2.jar;C:/Users/jan_b/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.4/jackson-annotations-2.13.4.jar;C:/Users/jan_b/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4.jar;C:/Users/jan_b/.m2/repository/org/projectlombok/lombok/1.18.30/lombok-1.18.30.jar'
+-encoding
+'UTF-8'
+-private
+-source
+'21'
+-sourcepath
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java'
+-author
+-bottom
+'Copyright &#169; 2025. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'C:/Users/jan_b/IdeaProjects/Ocado/javadoc/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'Ocado 1.0-SNAPSHOT API'
+-use
+-version
+-windowtitle
+'Ocado 1.0-SNAPSHOT API'
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java/pl/edu/agh/kis/pz1/domain/Order.java'
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java/pl/edu/agh/kis/pz1/domain/PaymentMethod.java'
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java/pl/edu/agh/kis/pz1/domain/Result.java'
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java/pl/edu/agh/kis/pz1/Main.java'
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java/pl/edu/agh/kis/pz1/optimizer/NotFoundPaymentsException.java'
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java/pl/edu/agh/kis/pz1/optimizer/PaymentOptimizer.java'
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java/pl/edu/agh/kis/pz1/utils/BigDecimalUtil.java'
+'C:/Users/jan_b/IdeaProjects/Ocado/src/main/java/pl/edu/agh/kis/pz1/utils/JsonParser.java'
+C:\Users\jan_b\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.13.4.2\jackson-databind-2.13.4.2.jar = 1746797379160
+C:\Users\jan_b\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.13.4\jackson-annotations-2.13.4.jar = 1746797378823
+C:\Users\jan_b\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.13.4\jackson-core-2.13.4.jar = 1746797379043
+C:\Users\jan_b\.m2\repository\org\projectlombok\lombok\1.18.30\lombok-1.18.30.jar = 1734218532698
+C:\Users\jan_b\IdeaProjects\Ocado\src\main\java = 1746795045381
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\allclasses-index.html = 1746979648675
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\allpackages-index.html = 1746979648678
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\constant-values.html = 1746979648518
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\copy.svg = 1746979648724
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\element-list = 1746979648438
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\help-doc.html = 1746979648710
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\index-all.html = 1746979648700
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\index.html = 1746979648652
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\link.svg = 1746979648725
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\member-search-index.js = 1746979648682
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\module-search-index.js = 1746979648679
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\overview-summary.html = 1746979648705
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\overview-tree.html = 1746979648647
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\package-search-index.js = 1746979648680
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\script.js = 1746979648722
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\search-page.js = 1746979648731
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\search.html = 1746979648703
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\search.js = 1746979648728
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\serialized-form.html = 1746979648541
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\stylesheet.css = 1746979648713
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\tag-search-index.js = 1746979648683
+C:\Users\jan_b\IdeaProjects\Ocado\javadoc\apidocs\type-search-index.js = 1746979648681

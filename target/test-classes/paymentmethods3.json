@@ -1,0 +1,12 @@
+[
+  {
+    "id": "PUNKTY",
+    "discount": "10",
+    "limit": "200.00"
+  },
+  {
+    "id": "BosBankrut",
+    "discount": "0",
+    "limit": "1000.00"
+  }
+]

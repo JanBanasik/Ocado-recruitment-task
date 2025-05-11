@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BigDecimalUtil.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ocado</a> &gt; <a href="index.source.html" class="el_package">pl.edu.agh.kis.pz1.utils</a> &gt; <span class="el_source">BigDecimalUtil.java</span></div><h1>BigDecimalUtil.java</h1><pre class="source lang-java linenums">package pl.edu.agh.kis.pz1.utils;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+/**
+ * Utility class for performing common operations on BigDecimal with a fixed scale
+ * and rounding mode, specifically for currency calculations.
+ * Prevents common floating-point precision issues.
+ */
+public class BigDecimalUtil {
+
+    /**
+     * Standard scale for currency values (2 decimal places).
+     */
+    public static final int SCALE = 2;
+
+    /**
+     * Standard rounding mode (rounding up for 0.5 and higher).
+     */
+<span class="fc" id="L21">    public static final RoundingMode ROUNDING_MODE = RoundingMode.HALF_UP;</span>
+
+    /**
+     * Private constructor to prevent instantiation of this utility class.
+     */
+<span class="nc" id="L26">    private BigDecimalUtil() {</span>
+<span class="nc" id="L27">        throw new IllegalStateException(&quot;Utility class&quot;);</span>
+    }
+
+    /**
+     * Sets the defined scale and rounding mode for a BigDecimal value.
+     * Returns null if the input value is null.
+     *
+     * @param value The BigDecimal value to scale and round.
+     * @return The scaled and rounded BigDecimal value, or null if input is null.
+     */
+    public static BigDecimal setScale(BigDecimal value) {
+<span class="fc bfc" id="L38" title="All 2 branches covered.">        if (value == null) {</span>
+<span class="fc" id="L39">            return BigDecimal.ZERO;</span>
+        }
+<span class="fc" id="L41">        return value.setScale(SCALE, ROUNDING_MODE);</span>
+    }
+
+    /**
+     * Calculates a percentage of a BigDecimal value.
+     * Example: percentage(BigDecimal.valueOf(100), 10) returns 10.00.
+     *
+     * @param value The base BigDecimal value.
+     * @param percent The percentage as an integer (e.g., 10 for 10%). Must be non-negative.
+     * @return The calculated percentage amount as a BigDecimal, rounded to the defined scale. Returns BigDecimal.ZERO if value is null or percent is negative.
+     */
+    public static BigDecimal percentage(BigDecimal value, int percent) {
+<span class="pc bpc" id="L53" title="1 of 6 branches missed.">        if (value == null || percent &lt; 0 || percent &gt; 100) {</span>
+<span class="fc" id="L54">            return BigDecimal.ZERO;</span>
+        }
+
+<span class="fc" id="L57">        BigDecimal percentDecimal = BigDecimal.valueOf(percent);</span>
+<span class="fc" id="L58">        BigDecimal hundred = BigDecimal.valueOf(100);</span>
+
+<span class="fc" id="L60">        BigDecimal result = value.multiply(percentDecimal).divide(hundred, SCALE + 2, ROUNDING_MODE);</span>
+<span class="fc" id="L61">        return setScale(result);</span>
+    }
+
+    /**
+     * Calculates the value of an amount after applying a percentage discount.
+     * Example: applyDiscount(BigDecimal.valueOf(100), 10) returns 90.00.
+     *
+     * @param value The original BigDecimal value.
+     * @param percent The discount percentage as an integer (e.g., 10 for 10%). Must be between 0 and 100.
+     * @return The discounted amount as a BigDecimal, rounded to the defined scale. Returns the original value if input is null or percent is out of bounds.
+     */
+    public static BigDecimal applyDiscount(BigDecimal value, int percent) {
+<span class="fc bfc" id="L73" title="All 6 branches covered.">        if (value == null || percent &lt; 0 || percent &gt; 100) {</span>
+<span class="fc" id="L74">            return value;</span>
+        }
+<span class="fc" id="L76">        BigDecimal percentToPay = BigDecimal.valueOf(100L - percent);</span>
+<span class="fc" id="L77">        BigDecimal hundred = BigDecimal.valueOf(100);</span>
+
+<span class="fc" id="L79">        BigDecimal result = value.multiply(percentToPay).divide(hundred, SCALE + 2, ROUNDING_MODE);</span>
+<span class="fc" id="L80">        return setScale(result);</span>
+    }
+
+    /**
+     * Calculates the absolute amount of a discount given an original value and percentage.
+     * Example: calculateDiscountAmount(BigDecimal.valueOf(100), 10) returns 10.00.
+     *
+     * @param originalValue The original BigDecimal value.
+     * @param percent The discount percentage as an integer (e.g., 10 for 10%). Must be between 0 and 100.
+     * @return The discount amount as a BigDecimal, rounded to the defined scale. Returns BigDecimal.ZERO if input is null or percent is out of bounds.
+     */
+    public static BigDecimal calculateDiscountAmount(BigDecimal originalValue, int percent) {
+<span class="fc bfc" id="L92" title="All 6 branches covered.">        if (originalValue == null || percent &lt; 0 || percent &gt; 100) {</span>
+<span class="fc" id="L93">            return BigDecimal.ZERO;</span>
+        }
+<span class="fc" id="L95">        BigDecimal discountedValue = applyDiscount(originalValue, percent);</span>
+        // Subtracting the discounted value from the original value gives the discount amount.
+<span class="fc" id="L97">        return originalValue.subtract(discountedValue);</span>
+    }
+
+    /**
+     * Returns the minimum of two BigDecimal values.
+     * If one is null, returns the other. If both are null, behavior is undefined.
+     *
+     * @param a The first BigDecimal value.
+     * @param b The second BigDecimal value.
+     * @return The smaller of a and b. Returns b if a is null, a if b is null.
+     */
+    public static BigDecimal min(BigDecimal a, BigDecimal b) {
+<span class="pc bpc" id="L109" title="1 of 2 branches missed.">        if (a == null) return b;</span>
+<span class="pc bpc" id="L110" title="1 of 2 branches missed.">        if (b == null) return a;</span>
+<span class="fc" id="L111">        return a.min(b);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="pl"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PaymentMethod.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">Ocado</a> &gt; <a href="index.source.html" class="el_package">pl.edu.agh.kis.pz1.domain</a> &gt; <span class="el_source">PaymentMethod.java</span></div><h1>PaymentMethod.java</h1><pre class="source lang-java linenums">package pl.edu.agh.kis.pz1.domain;
+
+import lombok.*;
+import java.math.BigDecimal;
+
+/**
+ * Represents a payment method available to the customer.
+ * Includes details like ID, discount percentage, total limit,
+ * remaining limit, and total amount spent using this method.
+ */
+@Getter
+<span class="pc" id="L12">@Setter</span>
+<span class="nc" id="L13">@ToString</span>
+<span class="fc" id="L14">@NoArgsConstructor</span>
+<span class="fc" id="L15">@AllArgsConstructor</span>
+public class PaymentMethod {
+
+    /**
+     * The unique identifier of the payment method (e.g., &quot;PUNKTY&quot;, &quot;mZysk&quot;).
+     */
+<span class="fc" id="L21">    private String id;</span>
+
+    /**
+     * The discount percentage offered by this payment method as an integer (e.g., 15 for 15%).
+     */
+<span class="fc" id="L26">    private int discount;</span>
+
+    /**
+     * The total initial limit of funds available for this payment method.
+     */
+<span class="fc" id="L31">    private BigDecimal limit;</span>
+
+    /**
+     * The remaining limit of funds currently available for this payment method.
+     * This value decreases as payments are made using this method.
+     */
+<span class="fc" id="L37">    private BigDecimal remainingLimit;</span>
+
+    /**
+     * The total cumulative amount spent using this payment method across all orders.
+     * Initialized to BigDecimal.ZERO.
+     */
+<span class="fc" id="L43">    private BigDecimal totalSpent = BigDecimal.ZERO;</span>
+
+    /**
+     * Initializes the {@code remainingLimit} to the full {@code limit} amount.
+     * This should be called after parsing or creating a new PaymentMethod object
+     * before starting payment allocation.
+     */
+    public void initializeRemainingLimit() {
+<span class="fc" id="L51">        this.remainingLimit = this.limit;</span>
+<span class="fc" id="L52">    }</span>
+
+    /**
+     * Adds a specified amount to the {@code totalSpent} for this payment method.
+     * Ensures the amount is non-negative.
+     *
+     * @param amount The amount spent to add to the total.
+     */
+    public void addSpent(BigDecimal amount) {
+<span class="pc bpc" id="L61" title="1 of 2 branches missed.">        if (amount.compareTo(BigDecimal.ZERO) &lt; 0) {</span>
+<span class="nc" id="L62">            return;</span>
+        }
+<span class="fc" id="L64">        this.totalSpent = this.totalSpent.add(amount);</span>
+<span class="fc" id="L65">    }</span>
+
+    /**
+     * Deducts a specified amount from the {@code remainingLimit} for this payment method.
+     * Ensures the amount is non-negative.
+     *
+     * @param amount The amount to deduct from the remaining limit.
+     */
+    public void deductLimit(BigDecimal amount) {
+<span class="pc bpc" id="L74" title="1 of 2 branches missed.">        if (amount.compareTo(BigDecimal.ZERO) &lt; 0) {</span>
+<span class="nc" id="L75">            return;</span>
+        }
+<span class="fc" id="L77">        this.remainingLimit = this.remainingLimit.subtract(amount);</span>
+<span class="fc" id="L78">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>
