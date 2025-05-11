@@ -66,6 +66,8 @@
                                     <mainClass>pl.edu.agh.kis.pz1.Main</mainClass>
                                 </transformer>
                             </transformers>
+
+                            <finalName>app</finalName>
                         </configuration>
                     </execution>
                 </executions>
@@ -84,6 +86,7 @@
                 <version>3.3.0</version>
                 <configuration>
                     <reportOutputDirectory>${project.basedir}/javadoc</reportOutputDirectory>
+                    <show>private</show>
                 </configuration>
                 <executions>
                     <execution>

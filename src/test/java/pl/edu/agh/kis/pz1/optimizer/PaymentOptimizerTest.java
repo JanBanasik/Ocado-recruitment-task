@@ -34,7 +34,7 @@ class PaymentOptimizerTest {
     @Test
     void simpleR2DiscountApplied() throws NotFoundPaymentsException {
         List<Order> orders = Collections.singletonList(
-                createOrder("ORDER1", "100.00", Collections.singletonList("CardA")) // Use updated helper
+                createOrder("ORDER1", "100.00", Collections.singletonList("CardA"))
         );
         List<PaymentMethod> methods = Collections.singletonList(
                 createMethod("CardA", 10, "100.00")
@@ -58,7 +58,7 @@ class PaymentOptimizerTest {
     @Test
     void simpleR3DiscountApplied() throws NotFoundPaymentsException {
         List<Order> orders = Collections.singletonList(
-                createOrder("ORDER1", "100.00", null) // Use updated helper
+                createOrder("ORDER1", "100.00", null)
         );
         List<PaymentMethod> methods = Arrays.asList(
                 createMethod("PUNKTY", 15, "50.00"),

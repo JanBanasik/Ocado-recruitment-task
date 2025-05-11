@@ -99,7 +99,7 @@ public class BigDecimalUtil {
 
     /**
      * Returns the minimum of two BigDecimal values.
-     * If one is null, returns the other. If both are null, behavior is undefined (consider adding null checks if needed).
+     * If one is null, returns the other. If both are null, behavior is undefined.
      *
      * @param a The first BigDecimal value.
      * @param b The second BigDecimal value.

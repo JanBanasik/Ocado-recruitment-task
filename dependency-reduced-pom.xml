@@ -34,6 +34,7 @@
                   <mainClass>pl.edu.agh.kis.pz1.Main</mainClass>
                 </transformer>
               </transformers>
+              <finalName>app</finalName>
             </configuration>
           </execution>
         </executions>
@@ -55,6 +56,7 @@
         </executions>
         <configuration>
           <reportOutputDirectory>${project.basedir}/javadoc</reportOutputDirectory>
+          <show>private</show>
         </configuration>
       </plugin>
     </plugins>
